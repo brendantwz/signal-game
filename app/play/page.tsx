@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { supabase } from '@/lib/supabase/client';
 import { useGameState, useLocalGameStorage } from '@/hooks/useGameState';
@@ -9,10 +9,9 @@ import WaitingRoom from '@/components/play/WaitingRoom';
 import GameView from '@/components/play/GameView';
 
 /**
- * /play - Player View (Mobile-Optimized)
- * Join flow -> Waiting room -> Game play with secret roles and voting
+ * Inner component that uses useSearchParams
  */
-export default function PlayPage() {
+function PlayContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const accessCode = searchParams.get('code');
@@ -92,5 +91,26 @@ export default function PlayPage() {
       currentPlayer={currentPlayer}
       votes={votes}
     />
+  );
+}
+
+/**
+ * /play - Player View (Mobile-Optimized)
+ * Join flow -> Waiting room -> Game play with secret roles and voting
+ */
+export default function PlayPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center" style={{ background: '#0a0a0a', color: '#ffb000' }}>
+          <div className="text-center">
+            <div className="text-2xl crt-glow mb-4">[ INITIALIZING ]</div>
+            <div className="animate-pulse">Loading...</div>
+          </div>
+        </div>
+      }
+    >
+      <PlayContent />
+    </Suspense>
   );
 }

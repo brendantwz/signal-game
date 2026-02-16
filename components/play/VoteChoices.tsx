@@ -3,14 +3,13 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { supabase } from '@/lib/supabase/client';
-import type { VoteChoice } from '@/lib/types/database';
-import type { VoteChoice as ContentVoteChoice } from '@/lib/content/types';
+import type { VoteChoice } from '@/lib/content/types';
 
 interface VoteChoicesProps {
   gameId: string;
   playerId: string;
   chapter: number;
-  choices: ContentVoteChoice[];
+  choices: VoteChoice[];
   hasVoted: boolean;
   abilityActive?: boolean; // For hacker double vote
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { supabase } from '@/lib/supabase/client';
 import { useGameState } from '@/hooks/useGameState';
@@ -9,10 +9,9 @@ import AdminGameControl from '@/components/admin/AdminGameControl';
 import CreateGameForm from '@/components/admin/CreateGameForm';
 
 /**
- * /admin - Game Master Dashboard
- * Create game -> Lobby management -> Game state control
+ * Inner component that uses useSearchParams
  */
-export default function AdminPage() {
+function AdminContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const gameIdFromUrl = searchParams.get('game');
@@ -67,5 +66,26 @@ export default function AdminPage() {
       votes={votes}
       onRefresh={refresh}
     />
+  );
+}
+
+/**
+ * /admin - Game Master Dashboard
+ * Create game -> Lobby management -> Game state control
+ */
+export default function AdminPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center" style={{ background: '#0a0a0a', color: '#ffb000' }}>
+          <div className="text-center">
+            <div className="text-2xl crt-glow mb-4">[ INITIALIZING ADMIN ]</div>
+            <div className="animate-pulse">Loading...</div>
+          </div>
+        </div>
+      }
+    >
+      <AdminContent />
+    </Suspense>
   );
 }
