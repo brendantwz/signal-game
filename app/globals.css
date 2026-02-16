@@ -1,26 +1,187 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ============================================
+   2050: The Signal We Trusted - Terminal Noir Theme
+   ============================================ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Core Tailwind Colors */
+  --color-background: #0a0a0a;
+  --color-foreground: #ffb000;
+  --color-primary: #ffb000;
+  --color-secondary: #33ff33;
+  --color-danger: #ff3333;
+  --color-muted: #333333;
+  
+  /* Terminal Noir Custom Colors - These become utility classes */
+  --color-terminal-black: #0a0a0a;
+  --color-terminal-amber: #ffb000;
+  --color-terminal-green: #33ff33;
+  --color-terminal-red: #ff3333;
+  --color-terminal-gray: #333333;
+  --color-terminal-gray-light: #666666;
+  
+  /* Fonts */
+  --font-mono: var(--font-jetbrains-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  /* CSS variables for use in regular CSS */
+  --terminal-black: #0a0a0a;
+  --terminal-amber: #ffb000;
+  --terminal-green: #33ff33;
+  --terminal-red: #ff3333;
+  --terminal-gray: #333333;
+  --terminal-gray-light: #666666;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--terminal-black);
+  color: var(--terminal-amber);
+  font-family: var(--font-jetbrains-mono), 'Courier New', monospace;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   CRT Scanline Effect (Terminal Noir Aesthetic)
+   ============================================ */
+
+.crt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+.crt-flicker {
+  animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.97;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.97;
+  }
+}
+
+/* CRT Glow Effect */
+.crt-glow {
+  text-shadow: 
+    0 0 5px var(--terminal-amber),
+    0 0 10px var(--terminal-amber),
+    0 0 15px var(--terminal-amber);
+}
+
+.crt-glow-green {
+  text-shadow: 
+    0 0 5px var(--terminal-green),
+    0 0 10px var(--terminal-green),
+    0 0 15px var(--terminal-green);
+}
+
+/* Glitch Effect (for transitions) */
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
+.glitch {
+  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* Terminal-style input boxes */
+input, textarea, select {
+  background: var(--terminal-black);
+  border: 2px solid var(--terminal-gray);
+  color: var(--terminal-amber);
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--terminal-amber);
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 176, 0, 0.3);
+}
+
+/* Terminal-style buttons */
+button {
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+/* Thumb-friendly mobile buttons */
+@media (max-width: 768px) {
+  button, a.button {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px 24px;
+  }
+}
+
+/* Selection styling */
+::selection {
+  background: var(--terminal-amber);
+  color: var(--terminal-black);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--terminal-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--terminal-gray);
+  border: 2px solid var(--terminal-black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--terminal-amber);
 }

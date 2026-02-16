@@ -1,23 +1,38 @@
 {
   "name": "signal-game-2050",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "A dystopian local-multiplayer simulation with realtime synchronization",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
   },
+  "keywords": [
+    "game",
+    "multiplayer",
+    "nextjs",
+    "supabase",
+    "realtime",
+    "dystopian"
+  ],
+  "author": "",
+  "license": "MIT",
   "dependencies": {
-    "next": "16.1.6",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "@supabase/supabase-js": "^2.49.3",
+    "framer-motion": "^12.0.0",
+    "next": "^15.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "tailwindcss": "^4",
+    "tailwindcss": "^4.0.0",
     "typescript": "^5"
   }
 }

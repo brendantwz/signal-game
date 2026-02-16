@@ -1,0 +1,126 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                   2050 — THE SIGNAL WE TRUSTED                       ║
+║                    GAME MASTER QUICK REFERENCE                       ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ SETUP (5 MINUTES)                                                   │
+└─────────────────────────────────────────────────────────────────────┘
+
+1. Open /admin → Click "Create New Game"
+2. Display /screen on big TV/projector  
+3. Share access code with players
+4. Wait for 3+ players to join
+5. Click "START GAME" when ready
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ CONTROL PANEL BUTTONS                                               │
+└─────────────────────────────────────────────────────────────────────┘
+
+[ CH1: STORY ]    → Show Chapter 1 narrative
+[ CH1: VOTE ]     → Open Chapter 1 voting
+[ CH2: STORY ]    → Show Chapter 2 narrative  
+[ CH2: VOTE ]     → Open Chapter 2 voting
+[ CH3: STORY ]    → Show Chapter 3 narrative
+[ CH3: VOTE ]     → Open Chapter 3 voting
+[ SHOW RESULTS ]  → Display final scores & hacker reveal
+[ END GAME ]      → Finish session (can't undo!)
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ GAME FLOW                                                           │
+└─────────────────────────────────────────────────────────────────────┘
+
+STORY PHASE:
+  • Read narrative aloud (2-3 min)
+  • All devices show story text
+  • Click next when ready
+
+VOTE PHASE:
+  • Players make secret choices (1-2 min)
+  • Admin shows vote progress %
+  • Big screen shows who has voted
+  • Proceed when 100% complete
+
+RESULTS:
+  • Final scores revealed
+  • Hacker identity exposed
+  • Discussion time!
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TRINITY SYNC                                                        │
+└─────────────────────────────────────────────────────────────────────┘
+
+When you click ANY button in admin:
+  → Big screen updates INSTANTLY
+  → All player devices update INSTANTLY
+  → Target: Sub-100ms synchronization
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TROUBLESHOOTING                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+Player disconnected?
+  → They can rejoin with same access code
+  → Progress/role preserved
+
+Screen not updating?
+  → Refresh browser
+  → Check game ID in URL
+
+Vote stuck?
+  → Check admin panel for who hasn't voted
+  → Remind them verbally
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ TIMING GUIDE                                                        │
+└─────────────────────────────────────────────────────────────────────┘
+
+Setup:         5 minutes
+Per Chapter:   5-8 minutes
+  - Story:     2-3 minutes
+  - Voting:    1-2 minutes
+  - Discuss:   2-3 minutes
+Results:       5 minutes
+TOTAL:         20-30 minutes
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ URLS                                                                │
+└─────────────────────────────────────────────────────────────────────┘
+
+Admin:   /admin
+Player:  /play?code=ABC123
+Screen:  /screen?game=[game-id]
+
+Use "COPY URL" buttons in admin lobby!
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ BEST PRACTICES                                                      │
+└─────────────────────────────────────────────────────────────────────┘
+
+✓ Dim lights for atmosphere
+✓ Read story dramatically  
+✓ Build suspense before reveals
+✓ Don't reveal hacker identity early!
+✓ Encourage player discussion
+✓ Keep pace moving (but not rushed)
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ PLAYER LIMITS                                                       │
+└─────────────────────────────────────────────────────────────────────┘
+
+Minimum:  3 players (1 hacker, 2 citizens)
+Ideal:    6-12 players  
+Maximum:  No hard limit (tested to 20)
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ EMERGENCY RESET                                                     │
+└─────────────────────────────────────────────────────────────────────┘
+
+Something broken?
+  1. Refresh all browser windows
+  2. Click "End Game" and create new one
+  3. Check Supabase dashboard if persistent
+
+╔══════════════════════════════════════════════════════════════════════╗
+║  "In 2050, we trusted the signal. What will you trust?"             ║
+╚══════════════════════════════════════════════════════════════════════╝
